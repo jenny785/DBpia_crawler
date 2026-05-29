@@ -1,0 +1,25 @@
+# ML Modules Requirements
+# DSBA Lab Integration
+
+# Data Processing
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# Machine Learning
+scikit-learn>=1.0.0
+torch>=1.8.0
+
+# NLP & Transformers (Optional, for advanced features)
+transformers>=4.18.0
+konlpy>=0.6.0
+
+# Monitoring & Experiment Tracking
+wandb>=0.12.0
+
+# Testing
+unittest2>=1.1.0
+
+# Utilities
+tqdm>=4.62.0
+python-dateutil>=2.8.0
