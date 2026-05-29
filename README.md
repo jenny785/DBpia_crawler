@@ -34,6 +34,70 @@ fName = "{}_{}_{}.csv".format(searchQ, startYear, endYear)
 ### 보안점
 멀티 쓰레딩 추가
 
+### 머신러닝 모듈 (DSBA Lab Integration)
+
+DBpia_crawler는 이제 DSBA Lab의 주요 연구 성과를 통합한 머신러닝 모듈을 제공합니다.
+
+#### 주요 기능
+
+**1. 시계열 분석 (TS-Unity Framework)**
+```python
+from ml_modules import TimeSeriesAnalyzer
+
+analyzer = TimeSeriesAnalyzer()
+# 논문 발행 추세 분석, 이상 탐지, 예측
+```
+
+**2. 로그 이상 탐지 (RAPID Framework)**
+```python
+from ml_modules import LogAnomalyDetector
+
+detector = LogAnomalyDetector()
+# 크롤러 로그 모니터링, 오류 감지
+```
+
+**3. 텍스트 신뢰도 분석 (Fake-News-Detection)**
+```python
+from ml_modules import FakeNewsDetector
+
+classifier = FakeNewsDetector()
+# 논문 제목/초록 신뢰도 평가
+```
+
+#### 설치
+
+```bash
+# 기본 설치
+pip install -r requirements_ml.txt
+
+# 고급 기능 (선택사항)
+pip install transformers torch
+```
+
+#### 사용 예제
+
+```python
+from ml_modules import TimeSeriesAnalyzer, LogAnomalyDetector, FakeNewsDetector
+
+# 수집된 논문 분석
+papers = load_papers()  # 크롤러로부터 수집
+
+# 논문 신뢰도 검증
+classifier = FakeNewsDetector()
+for paper in papers:
+    result = classifier.classify_title(paper['title'])
+    
+# 수집 패턴 분석
+analyzer = TimeSeriesAnalyzer()
+trend_analysis = analyzer.analyze_publication_trends(dates, volumes)
+
+# 로그 모니터링
+log_detector = LogAnomalyDetector()
+log_results = log_detector.analyze_logs(crawler_logs)
+```
+
+더 자세한 정보는 [ml_modules/README.md](ml_modules/README.md)를 참고하세요.
+
 ### Contact
 If you have any requests, please contact: [https://ck992.github.io/](https://ck992.github.io/).
 
